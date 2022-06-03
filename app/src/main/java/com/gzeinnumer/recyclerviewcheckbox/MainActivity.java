@@ -15,6 +15,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    private RVCheckBoxAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         initRV();
         initOnClick();
     }
-    RVCheckBoxAdapter adapter;
+
 
     private void initRV() {
         List<String> list = new ArrayList<>();

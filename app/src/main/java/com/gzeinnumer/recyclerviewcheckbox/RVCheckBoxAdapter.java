@@ -96,6 +96,7 @@ public class RVCheckBoxAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         protected void publishResults(CharSequence constraint, FilterResults results) {
             list.clear();
             list.addAll((List) results.values);
+            initHolders();
             notifyDataSetChanged();
         }
     };
