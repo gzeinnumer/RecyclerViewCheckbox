@@ -1,5 +1,9 @@
 # RecyclerViewCheckbox
 
+<pre>
+<img src="preview/example1.png" width="300">
+</pre>
+
 ```java
 public class MainActivity extends AppCompatActivity {
 
@@ -53,7 +57,11 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-- []()
+- [BaseCallBackAdapter.java](app/src/main/java/com/gzeinnumer/recyclerviewcheckbox/BaseCallBackAdapter.java)
+- [RVCheckBoxAdapter.java](app/src/main/java/com/gzeinnumer/recyclerviewcheckbox/RVCheckBoxAdapter.java)
+- [item_rv.xml](app/src/main/res/layout/item_rv.xml)
+- [empty_item.xml](app/src/main/res/layout/empty_item.xml)
+- [activity_main.xml](app/src/main/res/layout/activity_main.xml)
 
 ---
 
