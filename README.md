@@ -65,6 +65,17 @@ public class MainActivity extends AppCompatActivity {
 
 ---
 
+#### Enable Check All
+
+[Check All](https://github.com/gzeinnumer/RecyclerViewCheckbox/tree/check-all)
+
+<pre>
+<img src="https://github.com/gzeinnumer/RecyclerViewCheckbox/blob/check-all/preview/example2.png" width="300">
+<img src="https://github.com/gzeinnumer/RecyclerViewCheckbox/blob/check-all/preview/example3.png" width="300">
+</pre>
+
+---
+
 ```
 Copyright 2022 M. Fadli Zein
 ```
