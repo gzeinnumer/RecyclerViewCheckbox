@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.gzeinnumer.recyclerviewcheckbox.databinding.ActivityMainBinding;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         initRV();
         initOnClick();
+        initOnClickV2(); //only for check all
     }
 
 
@@ -43,12 +45,6 @@ public class MainActivity extends AppCompatActivity {
         binding.rv.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
     }
 
-    private void initOnClick() {
-        binding.btnProcess.setOnClickListener(view -> {
-            processData();
-        });
-    }
-
     private void processData() {
         List<String> listSelected = new ArrayList<>();
 
@@ -60,5 +56,57 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         Toast.makeText(getApplicationContext(), listSelected.toString(), Toast.LENGTH_SHORT).show();
+    }
+
+    private void initOnClick() {
+        binding.btnProcess.setOnClickListener(view -> {
+            processData();
+        });
+    }
+
+    private void initOnClickV2() {
+        setCbAllCallBack();
+        adapter.setOnItemClickListener((type, position, data) -> {
+            if (type==0){
+                checkAllChecked();
+            }
+        });
+    }
+
+    private void setCbAllCallBack() {
+        binding.cbAll.setOnCheckedChangeListener((compoundButton, b) -> {
+            checkAllAction(b);
+        });
+    }
+
+    private void checkAllAction(boolean b) {
+        for (int i = 0; i < adapter.getHolders().size(); i++) {
+            ItemRvBinding bind = adapter.getHolders().get(i);
+            if (bind!=null){
+                bind.cb.setChecked(b);
+            }
+        }
+    }
+
+    private void checkAllChecked() {
+        List<Boolean> checked = new ArrayList<>();
+
+        for (int i = 0; i < adapter.getHolders().size(); i++) {
+            ItemRvBinding bind = adapter.getHolders().get(i);
+            if (bind!=null){
+                checked.add(bind.cb.isChecked());
+            }
+        }
+        boolean isAllTrue = !checked.contains(false);
+
+        binding.cbAll.setOnCheckedChangeListener((compoundButton, b) -> {
+            //clear cbAll callback
+        });
+
+        binding.cbAll.setChecked(isAllTrue);
+
+        //set cbAllCallBackAgain
+        setCbAllCallBack();
+
     }
 }

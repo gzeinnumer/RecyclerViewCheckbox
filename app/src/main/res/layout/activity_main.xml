@@ -7,6 +7,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <CheckBox
+        android:id="@+id/cb_all"
+        android:text="Check All"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:overScrollMode="never"

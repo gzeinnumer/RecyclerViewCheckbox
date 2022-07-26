@@ -3,6 +3,7 @@ package com.gzeinnumer.recyclerviewcheckbox;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.Filter;
 import android.widget.Filterable;
 
@@ -141,9 +142,15 @@ public class RVCheckBoxAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         public void bind(int position, String data, BaseCallBackAdapter<String> onItemClickListener) {
             itemBinding.tvContent.setText(data);
 
-            if (onItemClickListener!=null){
+            if (onItemClickListener != null) {
                 itemView.setOnClickListener(view -> {
-                    onItemClickListener.onClick(1, position, data);
+                    onItemClickListener.onClick(1, position, data); //for data
+                });
+                itemBinding.cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                        onItemClickListener.onClick(0, position, data); //for interack
+                    }
                 });
             }
         }
